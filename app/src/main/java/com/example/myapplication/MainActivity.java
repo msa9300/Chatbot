@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -35,7 +36,12 @@ public class MainActivity extends AppCompatActivity {
         sendButton = findViewById(R.id.send_btn);
 
         //setup recycler view
-        
+        messageAdapter = new MessageAdapter(messageList);
+        recyclerView.setAdapter(messageAdapter);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setStackFromEnd(true);
+        recyclerView.setLayoutManager(llm);
+
         sendButton.setOnClickListener((v)->{
             String question = messageEditText.getText().toString().trim();
             Toast.makeText(this,question,Toast.LENGTH_LONG).show();
