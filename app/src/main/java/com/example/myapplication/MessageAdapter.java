@@ -1,13 +1,30 @@
 package com.example.myapplication;
 
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MessageAdapter {
+public class MessageAdapter extends RecyclerView.Adapter <MessageAdapter.MyviewHolder> {
+    @NonNull
+    @Override
+    public MyviewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return null;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull MyviewHolder holder, int position) {
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return 0;
+    }
+
     public class MyviewHolder extends RecyclerView.ViewHolder{
         LinearLayout leftChatView, rightChatView;
         TextView leftTextView,rightTextView;
