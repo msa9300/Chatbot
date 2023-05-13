@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     EditText messageEditText;
     ImageButton sendButton;
     List<Message> messageList;
+    MessageAdapter messageAdapter;
 
 
 
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         messageEditText = findViewById(R.id.message_edit_text);
         sendButton = findViewById(R.id.send_btn);
 
+        //setup recycler view
+        
         sendButton.setOnClickListener((v)->{
             String question = messageEditText.getText().toString().trim();
             Toast.makeText(this,question,Toast.LENGTH_LONG).show();
