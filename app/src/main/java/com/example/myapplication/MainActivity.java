@@ -11,8 +11,14 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
@@ -21,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
     ImageButton sendButton;
     List<Message> messageList;
     MessageAdapter messageAdapter;
+    public static final MediaType JSON
+            = MediaType.get("application/json; charset=utf-8");
+
+    OkHttpClient client = new OkHttpClient();
 
 
 
@@ -61,5 +71,23 @@ public class MainActivity extends AppCompatActivity {
                 recyclerView.smoothScrollToPosition(messageAdapter.getItemCount());
             }
         });
+    }
+    void callAPI(String question){
+        //okhttp
+
+        JSONObject jsonBody = new JSONObject();
+        try {
+            jsonBody.put("model","text-davinci-003");
+            jsonBody.put("prompt",question);
+            jsonBody.put("max_tokens",4000);
+            jsonBody.put("temperature",0);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+
+
     }
 }
