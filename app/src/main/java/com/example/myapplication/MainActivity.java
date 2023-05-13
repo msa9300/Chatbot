@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             addToChat(question,Message.SENT_BY_ME);
             messageEditText.setText("");
             welcomeTextView.setVisibility(View.GONE);
-            
+
 
         });
     }
