@@ -6,16 +6,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -55,9 +51,10 @@ public class MainActivity extends AppCompatActivity {
 
         sendButton.setOnClickListener((v)->{
             String question = messageEditText.getText().toString().trim();
-            addToChat(question,Message.SENT_BY_ME);
-            messageEditText.setText("");
-            welcomeTextView.setVisibility(View.GONE);
+            jsonBody.put("model","text-davinci-003");
+            jsonBody.put("prompt",question);
+            jsonBody.put("max_tokens",4000);
+            jsonBody.put("temperature",0);
 
 
         });
